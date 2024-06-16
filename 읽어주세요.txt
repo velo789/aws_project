@@ -1,0 +1,5 @@
+도서관 정보와 도서관 소장도서 파일은 각각 문화 빅데이터 포털의 도서관 정보(https://www.bigdata-culture.kr/bigdata/user/data_market/detail.do?id=7461f23e-8958-417b-be03-7ede86ab760b)
+와 문화 빅데이터 포털의 공공 도서관 소장도서(https://www.bigdata-culture.kr/bigdata/user/data_market/detail.do?id=9bc56c9c-bc4e-4b68-90da-f4900009fc05)의
+파일을 다운받아서 이용하였습니다. 이 프로그램을 실행할려면 여기서 링크에서 회원가입하고 파일 다운로드 한 후에 진행하여 주십시오.
+컬럼 정의서는 그냥 다운로드가 가능하여 넣어뒀습니다. 부산 지역 도서관 정보와 부산 지역 도서 100건은 동작 실험을 위해 넣었습니다.
+과제가 끝나면 문제가 될지도 모르니 이 두 개의 파일은 언제든 삭제될 수 있음을 알려드립니다.

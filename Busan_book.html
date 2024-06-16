@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부산 지역 도서관 도서 검색</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        .container {
+            padding: 2rem;
+        }
+        .section {
+            background-color: white;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .search-section input[type="text"] {
+            width: calc(100% - 100px);
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-section button {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #333;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 0.5rem;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        부산 지역 도서관 도서 검색
+    </header>
+    <div class="container">
+        <section class="section search-section">
+            <h2>도서 검색</h2>
+            <input type="text" id="search-query" placeholder="도서 검색">
+            <button onclick="searchBooks()">검색</button>
+            <div id="search-results">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>저자</th>
+                            <th>도서 이름</th>
+                            <th>발행일</th>
+                            <th>보유 도서관</th>
+                        </tr>
+                    </thead>
+                    <tbody id="book-list">
+                        <!-- 검색 결과가 여기에 삽입됩니다 -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    <footer>
+        &copy; 2024 부산 지역 도서관. 모든 권리 보유.
+    </footer>
+
+    <script>
+        const bookApiUrl = 'https://yourAPI'; // 실제 API Gateway URL로 대체
+
+        function searchBooks() {
+            const query = document.getElementById('search-query').value.toLowerCase();
+            console.log('User query:', query); // 사용자 입력값 로그 출력
+
+            fetch(`${bookApiUrl}?query=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Fetched data:', data); // 가져온 데이터 로그 출력
+                    const bookList = document.getElementById('book-list');
+                    bookList.innerHTML = '';
+                    data.forEach(book => {
+                        console.log('Displaying book:', book); // 화면에 출력되는 데이터 로그 출력
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${book.AUTHR_NM}</td>
+                            <td>${book.TITLE_NM}</td>
+                            <td>${book.PBLICTE_YEAR}</td>
+                            <td>${book.LBRRY_NM}</td>
+                        `;
+                        bookList.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error fetching book data:', error));
+        }
+    </script>
+</body>
+</html>

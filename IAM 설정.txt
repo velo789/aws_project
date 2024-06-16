@@ -1,0 +1,111 @@
+
+### S3 권한 설정
+  - 읽기: `GetObject`, `ListBucket`
+
+### DynamoDB 권한 설정
+  - 쓰기: `PutItem`
+  - 읽기: `DescribeTable`, `Query`, `Scan`
+
+
+### CloudWatch Logs 권한 설정
+  - 쓰기: `CreateLogGroup`, `CreateLogStream`, `PutLogEvents`
+
+
+### API Gateway 권한 설정
+  - 읽기: `ExecuteApi:Invoke`
+
+### CloudFront 권한 설정
+  - 읽기: `GetDistribution`, `GetInvalidation`, `ListDistributions`
+  - 쓰기: `CreateInvalidation`
+
+### Lambda 권한 설정
+  - 쓰기: `InvokeFunction`, `UpdateFunctionCode`, `UpdateFunctionConfiguration`, `CreateFunction`
+  - 읽기: `GetFunction`, `ListFunctions`
+
+
+이제 각 서비스별로 필요한 권한을 체크합니다.
+
+### S3 권한 설정
+
+- `GetObject`
+- `ListBucket`
+
+
+### DynamoDB 권한 설정
+
+- `PutItem`
+- `DescribeTable`
+- `Query`
+- `Scan`
+
+### CloudWatch Logs 권한 설정
+
+- `CreateLogGroup`
+- `CreateLogStream`
+- `PutLogEvents`
+
+
+### API Gateway 권한 설정
+
+- `ExecuteApi:Invoke`
+
+### CloudFront 권한 설정
+
+- `GetDistribution`
+- `GetInvalidation`
+- `ListDistributions`
+- `CreateInvalidation`
+
+### Lambda 권한 설정
+
+- `InvokeFunction`
+- `UpdateFunctionCode`
+- `UpdateFunctionConfiguration`
+- `CreateFunction`
+- `GetFunction`
+- `ListFunctions`
+
+
+---
+
+이제 사진을 참고하여 필요한 권한을 체크합니다. 각 권한의 체크 위치를 설명합니다.
+
+### S3 권한 체크 위치
+  - `s3:GetObject`
+  - `s3:ListBucket`
+
+
+### DynamoDB 권한 체크 위치
+  - `dynamodb:PutItem`
+  - `dynamodb:DescribeTable`
+  - `dynamodb:Query`
+  - `dynamodb:Scan`
+
+### CloudWatch Logs 권한 체크 위치
+- **데이터 받는 부분**:
+  - `logs:CreateLogGroup`
+  - `logs:CreateLogStream`
+  - `logs:PutLogEvents`
+
+
+### API Gateway 권한 체크 위치
+  - `execute-api:Invoke`
+
+### CloudFront 권한 체크 위치
+
+  - `cloudfront:GetDistribution`
+  - `cloudfront:GetInvalidation`
+  - `cloudfront:ListDistributions`
+  - `cloudfront:CreateInvalidation`
+
+### Lambda 권한 체크 위치
+
+  - `lambda:InvokeFunction`
+  - `lambda:UpdateFunctionCode`
+  - `lambda:UpdateFunctionConfiguration`
+  - `lambda:CreateFunction`
+  - `lambda:GetFunction`
+  - `lambda:ListFunctions`
+
+
+이 설정을 바탕으로 IAM 역할을 생성하여 Lambda 함수에 할당하면 됩니다.
